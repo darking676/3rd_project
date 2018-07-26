@@ -6,7 +6,7 @@ public class AttachFile {
 	private String filename;
 	private String filetype;
 	private long filesize; 
-	private int bbseditno;
+	private int bbseditno; 
 
 	
 	public AttachFile() {}
