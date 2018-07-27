@@ -18,15 +18,7 @@ public class FileController {
 	 public ModelAndView upload(@RequestParam("number") String number, @RequestParam("file") MultipartFile file, HttpServletRequest request) {
 
 	  ModelAndView mav = new ModelAndView();
-	  // 파일 이름 출력
-	  System.out.println("파일이름" + file.getOriginalFilename());
-
-	  //참고, String filePath=request.getSession().getServletContext().getRealPath("upload");
-	  //절대경로 : String filePath = "c:\\data\\" + file.getOriginalFilename();
-
-	  // 파일을 실제 서버에 저장
-
-	  // 웹서비스 root 경로​
+	  System.out.println("fileName" + file.getOriginalFilename());
 
 	      String root_path = request.getSession().getServletContext().getRealPath("/");  
 

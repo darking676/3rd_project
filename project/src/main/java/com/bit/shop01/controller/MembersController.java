@@ -1,16 +1,13 @@
 
 package com.bit.shop01.controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.method.support.ModelAndViewContainer;
 
 import com.bit.shop01.model.entity.MemVo;
 import com.bit.shop01.service.MemService;
@@ -23,7 +20,6 @@ public class MembersController {
 
 	Logger log = Logger.getLogger(this.getClass());
 
-	// 로그인 페이지로 이동
 	@RequestMapping(value = "/login/", method = RequestMethod.GET)
 	public String login() {
 
@@ -31,8 +27,6 @@ public class MembersController {
 
 	}
 
-	// 로그인 성공 or 실패 후 이동하는 페이지
-	// 실패 시 다시 로그인 화면으로 이동
 
 	@RequestMapping(value = "/login/", method = RequestMethod.POST)
 	public String login(String memId, String memPassword, HttpSession session) throws Exception {
@@ -98,14 +92,12 @@ public class MembersController {
 	//
 	// }
 
-	// 회원정보 변경 페이지로 이동
 
 	@RequestMapping(value = "/changePasswd", method = RequestMethod.GET)
 	public String changePasswd() {
 		return "/info/changePasswd";
 	}
 
-	// 회원정보 변경 완료 후 이동하는 페이지
 	@RequestMapping(value = "/changePasswd", method = RequestMethod.POST)
 	public String changePasswd(String memPassword, String email, String address, String hp, HttpSession session)
 			throws Exception {
@@ -123,7 +115,6 @@ public class MembersController {
 		return "/info/changePasswdConfirm";
 	}
 
-	// 로그아웃 후 로그인 화면으로 이동
 
 	@RequestMapping(value = "/logout/", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
@@ -133,7 +124,6 @@ public class MembersController {
 
 	}
 
-	// 회원가입 페이지로 이동
 	@RequestMapping(value = "/join/", method = RequestMethod.GET)
 	public String gojoin(MemVo memVo) {
 
@@ -141,7 +131,6 @@ public class MembersController {
 
 	}
 
-	// 회원가입 성공시 이동하는 페이지
 	@RequestMapping(value = "/join/", method = RequestMethod.POST)
 	public String welcome(MemVo memVo) throws Exception {
 

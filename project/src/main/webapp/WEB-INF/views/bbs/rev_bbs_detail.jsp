@@ -106,7 +106,7 @@ function updateComment(no) {
 						<hr class="line">
 						<table>
 							<tr>
-								<br />
+								<br/>
 								<th>작성자 ${thisBbsVo.memId }</th>
 								<th style="width: 60px; text-align: right;">DATE&nbsp;&nbsp;</th>
 								<th style="width: 90px; color: #555;">${thisBbsVo.bbs_date }</th>
@@ -114,7 +114,7 @@ function updateComment(no) {
 							</tr>
 						</table>
 						<hr class="line">
-						<br /> <br />
+						<br/><br/>
 						
 							<p>${thisBbsVo.contents }</p>
 						<div id="gul-content">

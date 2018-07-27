@@ -1,18 +1,13 @@
 package com.bit.shop01.controller;
 
-import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.bit.shop01.bbs.AttachFile;
-import com.bit.shop01.bbs.BbsVo;
-import com.bit.shop01.page.WebContants;
 import com.bit.shop01.product.ProductService;
 import com.bit.shop01.product.ProductVo;
 
@@ -107,7 +102,14 @@ public class ShopController {
 /*===================================================================================*/
 	
 	@RequestMapping(value = "/bottom3/", method = RequestMethod.GET)
-	public String bottom3() {
+	public String bottom3(String procd, Model model) throws Exception {
+		
+		ArrayList<ProductVo> list = ProductService.getList(procd);
+		String productName = ProductService.getProductName(procd);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("productName", productName);
+		model.addAttribute("procd", procd);
 		
 		return "products3/bot/botList3";
 		

@@ -31,7 +31,6 @@ hr.line {
 <script type="text/javascript">
 	function check() {
 		var form = document.getElementById("writeForm3");
-		//유효성 검사로직 추가
 		return true;
 	}
 	function goList() {
@@ -63,15 +62,13 @@ hr.line {
 						<table id="write-form">
 							<tr>
 								<td>상품이름</td>
-								<td><input type="text" name="title" size="71"
+								<td><input type="text" name="productName" size="40"
 									style="height: 40px;" /></td>
+								<td>가격</td>
+								<td><input type="number" name="price" style="height: 40px" placeholder="\20000"/></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td>파일 첨부</td>
-								<td><input type="file" name="upload" multiple /></td>
 							</tr>
 							<tr>
 								<td>내용</td>
@@ -80,13 +77,19 @@ hr.line {
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td colspan="4"><textarea name="contents" rows="20"
+								<td colspan="4"><textarea name="explan" rows="20"
 										style="width: 653px"></textarea></td>
 							</tr>
-							<td>&nbsp;</td>
 							<tr>
-								<td>썸네일 첨부</td>
-								<td><input type="file" name="upload" multiple /></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Title 파일</td>
+								<td><input type="file" name="upload1" /></td>
+							</tr>
+							<tr>
+								<td>Detail 파일</td>
+								<td><input type="file" name="upload2" multiple /></td>
 							</tr>
 						</table>
 						<br />

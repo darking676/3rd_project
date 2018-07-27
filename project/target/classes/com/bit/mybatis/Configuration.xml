@@ -18,14 +18,14 @@
 		<typeAlias type="com.bit.shop01.bbs.BbsVo2" alias="bbsVo2" />
 		<typeAlias type="com.bit.shop01.bbs.AttachFile" alias="AttachFile" />
 		<typeAlias type="com.bit.shop01.bbs.Comment" alias="comment"/>
-<!-- 		<typeAlias type="com.bit.shop01.product.ProductVo" alias="proVo"/> -->
+		<typeAlias type="com.bit.shop01.product.ProductVo" alias="proVo"/>
 		
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="com/bit/mybatis/MemMapper.xml" />
 		<mapper resource="com/bit/mybatis/BbsMapper.xml" />
-<!-- 		<mapper resource="com/bit/mybatis/ProductMapper.xml"/> -->
+		<mapper resource="com/bit/mybatis/ProMapper.xml"/>
 	</mappers>
 
 

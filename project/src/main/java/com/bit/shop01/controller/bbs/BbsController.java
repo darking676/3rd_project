@@ -19,7 +19,6 @@ public class BbsController {
 	@Autowired
 	private BbsService bbsService;
 
-	// notice 게시판 맵핑
 	@RequestMapping(value = "/not_bbs", method = { RequestMethod.GET, RequestMethod.POST })
 	public String bbs(String bbscd, Integer curPage, String searchWord, Model model) throws Exception {
 
@@ -30,8 +29,8 @@ public class BbsController {
 		if (searchWord == null)
 			searchWord = "";
 
-		int numPerPage = 10;// 페이지당 레코드 수 지정
-		int pagePerBlock = 100;// 페이지 링크의 그룹(block)의 크기 지정
+		int numPerPage = 10;
+		int pagePerBlock = 100;
 
 		int totalRecord = bbsService.getTotalRecord(bbscd, searchWord);
 
@@ -60,24 +59,21 @@ public class BbsController {
 		model.addAttribute("firstPage", firstPage);
 		model.addAttribute("lastPage", lastPage);
 		model.addAttribute("pageLinks", pageLinks);
-		model.addAttribute("curPage", curPage);// curPage는 null 값이면 1로 만들어야 하므로
+		model.addAttribute("curPage", curPage);
 
 		System.out.println(searchWord);
 		return "/bbs/not_bbs";
 	}
 
-	// 게시판 글쓰기
 	@RequestMapping(value = "/not_bbs_write", method = RequestMethod.GET)
 	public String write(String bbscd, Model model) throws Exception {
 
-		// 게시판 이름
 		String bbsnm = bbsService.getBbsNm(bbscd);
 		model.addAttribute("bbsnm", bbsnm);
 
 		return "/bbs/not_bbs_write";
 	}
 
-	// notice 게시판 글작성
 	@RequestMapping(value = "/not_bbs_write", method = RequestMethod.POST)
 	public String write(BbsVo bbsVo) throws Exception {
 		bbsVo.setMemId("${memId}");
@@ -89,11 +85,11 @@ public class BbsController {
 	@RequestMapping(value = "/not_bbs_detail", method = RequestMethod.GET)
 	public String view(int bbseditno, String bbscd, Integer curPage, String searchWord, Model model) throws Exception {
 
-		int numPerPage = 10;// 페이지당 레코드 수 지정
-		int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
+		int numPerPage = 10;
+		int pagePerBlock = 10;
 		if (searchWord == null)
-			searchWord = ""; // 검색어가 null 이면 ""으로 변경
-		// 목록보기
+			searchWord = ""; 
+		
 		int totalRecord = bbsService.getTotalRecord(bbscd, searchWord);
 		System.out.println(curPage);
 		PagingHelper pagingHelper = new PagingHelper(totalRecord, curPage, numPerPage, pagePerBlock);
@@ -102,7 +98,6 @@ public class BbsController {
 		int start = pagingHelper.getStartRecord();
 		int end = pagingHelper.getEndRecord();
 
-		// 상세보기
 		BbsVo thisBbsVo = bbsService.getBbsVo(bbseditno);
 		BbsVo prevBbsVo = bbsService.getPrevBbsVo(bbseditno, bbscd, searchWord);
 		BbsVo nextBbsVo = bbsService.getNextBbsVo(bbseditno, bbscd, searchWord);
@@ -135,7 +130,6 @@ public class BbsController {
 		model.addAttribute("lastPage", lastPage);
 		model.addAttribute("pageLinks", pageLinks);
 
-		// 조회수 증가
 		bbsService.increaseHit(bbseditno);
 
 		return "/bbs/not_bbs_detail";
@@ -147,7 +141,7 @@ public class BbsController {
 
 		Comment comment = new Comment();
 		comment.setMemo(memo);
-		comment.setMemId("비회원"); // 임시
+		comment.setMemId("d"); 
 		comment.setBbseditno(bbseditno);
 		bbsService.insertComment(comment);
 
@@ -183,7 +177,6 @@ public class BbsController {
 
 	}
 
-	// 게시글 삭제
 	@RequestMapping(value = "/not_bbs_delete", method = RequestMethod.GET)
 	public String delete(int bbseditno, String searchWord, String bbscd) throws Exception {
 
@@ -193,14 +186,12 @@ public class BbsController {
 
 	}
 
-	// 게시글 수정
 	@RequestMapping(value = "/not_bbs_edit", method = RequestMethod.GET)
 	public String update(int bbseditno, String bbscd, Model model) throws Exception {
 
 		BbsVo thisBbsVo = bbsService.getBbsVo(bbseditno);
 		String bbsnm = bbsService.getBbsNm(bbscd);
 
-		// 수정페이지에서 보일 게시글 정보
 		model.addAttribute("thisBbsVo", thisBbsVo);
 		model.addAttribute("bbsnm", bbsnm);
 

@@ -37,6 +37,7 @@ function goWrite() {
 }
 function goView(bbseditno) {
 	var form = document.getElementById("viewForm3");
+	form.productNum = productNum;
 	form.submit();
 }
 </script>
@@ -48,119 +49,15 @@ function goView(bbseditno) {
 	<div id="product">
 		<div class="row">
 			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
+				<a href="/bottomV3?productNum=${proVo.productNum }">
+				<input type="hidden" value="번호${proVo.productNum }" /></a>
+				<a><img src="../../resources/imgs3/${file1.filename }" alt="..."
+					class="img-responsive img-rounded"></a><br/>
+					<a href="/bottomV3?productNum=${proVo.productNum }">상품명${proVo.productName }</a>
+				<h6>설명${proVo.explan }</h6>
+				<h5>&#8361;${proVo.price }</h5>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-			<div class="col-md-3">
-				<a><img src="../../resources/imgs3/${file.filename }" alt="..."
-					class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-					color)</a>
-				<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-				<h5>35,000원</h5>
-			</div>
-		</div>
-		<table class="table table-hover">
-			<tbody>
-				<c:forEach items="${list }" var="bbsVo" varStatus="status">
-					<tr>
-						<%-- 														<td style="text-align: center;">${no - status.index}</td>  --%>
-						<!-- 게시물 내림차순 정렬 -->
-						<td align="right" style="text-align: right; width: 100px;">${bbsVo.bbseditno }</td>
-						<td align="right" style="text-align: right; width: 600px;"><a
-							href="javascript:goView('${bbsVo.bbseditno }')">${bbsVo.title }
-							<c:if test="${bbsVo.attachFileNum > 0 }">
-							<img src="../resources/imgs/file.png" alt="첨부파일" width="30px" />
-						</c:if>
-						<c:if test="${bbsVo.commentno > 0 }">
-							<span class="bbs-strong">[${bbsVo.commentno }]</span>
-						</c:if>	
-							</a></td>
-						<td align="right" style="text-align: right; width: 400px;">${bbsVo.bbs_date }</td>
-						<td align="right" style="text-align: right; width: 400px;">${bbsVo.hit }</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		
 		
 		<div id="list-menu" style="text-align: right;">
 			<input type="button" value="상품추가" onclick="goWrite()"
@@ -171,7 +68,7 @@ function goView(bbseditno) {
 <br/><br/><br/><br/>
 <nav aria-label="Page navigation" style="padding-left: 800px;">
 	<ul class="pagination">
-		<li><a href="/shop01/bottom3/?productType=bot&curPage=1"
+		<li><a href="/shop01/bottom3?productType=bot&curPage=1"
 			aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 		</a></li>
 		<li><a href="/shop01/bottom3/?productType=bot&curPage=1">1</a></li>
@@ -186,5 +83,29 @@ function goView(bbseditno) {
 </nav>
 
 <%@ include file="../../template3/footer.jsp" %>
+
+<div id="form-group" style="display: none;">
+	<form id="listForm3" action="/shop01/bottom3/" method="get">
+		<p>
+			<input type="hidden" name="procd" value="${procd }" /> <input
+				type="hidden" name="curPage" />
+		</p>
+	</form>
+	<form id="writeForm3" action="/shop01/bottomW3/" method="get">
+		<p>
+			<input type="hidden" name="procd" value="${procd }" /> <input
+				type="hidden" name="curPage" value="${curPage }" />
+		</p>
+	</form>
+
+	<form id="viewForm3" action="/shop01/bottomV3/?productName=" method="get">
+		<p>
+			<input type="hidden" name="productName" /> <input type="hidden"
+				name="procd" value="${procd }" /> <input type="hidden"
+				name="curPage" value="${curPage }" />
+		</p>
+	</form>
+</div>
+
 </body>
 </html>

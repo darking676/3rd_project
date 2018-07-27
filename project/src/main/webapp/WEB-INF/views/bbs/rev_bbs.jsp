@@ -60,7 +60,7 @@ body {
 				<tbody>
 					<c:forEach items="${list }" var="bbsVo" varStatus="status">
 						<tr>
-							<%-- 														<td style="text-align: center;">${no - status.index}</td>  --%>
+							<%-- 	<td style="text-align: center;">${no - status.index}</td>  --%>
 							<!-- 게시물 내림차순 정렬 -->
 							<td align="right" style="text-align: right; width: 100px;">${bbsVo.bbseditno }</td>
 							<td align="right" style="text-align: right; width: 600px;"><a

@@ -6,33 +6,38 @@
    
 <mapper namespace="com.bit.mybatis.ProMapper">
 
-<select id="getProList">
-	SELECT * FROM PRODUCT VALUES ( #{productNum}, #{productName}, #{procd}, #{explan}, #{price}, #{product_url} )
-</select>
-
-<insert id="insertPro">
-	INSERT INTO PRODUCT VALUES ( #{productNum}, #{productName}, #{procd}, #{explan}, #{price}, #{product_url} )
-</insert>
-
-<update id="updatePro">
-	UPDATE PRODUCT SET productName = #{productName}, explan = #{explan}, price = #{price}, product_url = #{product_url}
-</update>
-
-<delete id="deletePro">
-	DELETE FROM PRODUCT WHERE productNum = #{productNum}
-</delete>
-
-<insert id="insertFile" parameterType="AttachFile">
-	INSERT INTO AttachFile ( attachfileno, filename, filetype, filesize ) VALUES ( #{attachfileno}, #{filename}, #{filetype}, #{filesize} )
-</insert>
-
-<select id="getAttachFile" parameterType="String" resultType="AttachFile">
-	SELECT attachfileno, filename, filetype, filesize,
-		bbseditno
-		FROM attachfile
+	<select id="getProList">
+		SELECT 
+		productNum, productName, explan, price, product_url 
+		FROM PRODUCT 
+		VALUES ( #{productNum}, #{productName}, #{explan}, #{price}, #{product_url} )
+	</select>
+	
+	<insert id="insertPro">
+		<!-- INSERT INTO PRODUCT (product_url) VALUES ( #{product_url} ) -->
+		INSERT INTO PRODUCT ( productName, procd, explan, price, product_url ) 
+		VALUES ( #{productName}, #{procd}, #{explan}, #{price}, #{product_url} )
+	</insert>
+	
+	<update id="updatePro">
+		UPDATE PRODUCT SET 
+		productName = #{productName}, explan = #{explan}, price = #{price}, product_url = #{product_url}
+	</update>
+	
+	<delete id="deletePro">
+		DELETE FROM PRODUCT WHERE productNum = #{productNum}
+	</delete>
+	
+	<insert id="insertFile" parameterType="AttachFile">
+		INSERT INTO AttachFile ( attachfileno, filename, filetype, filesize ) 
+		VALUES ( #{attachfileno}, #{filename}, #{filetype}, #{filesize} )
+	</insert>
+	
+	<select id="getAttachFile" parameterType="String" resultType="AttachFile">
+		SELECT 
+		attachfileno, filename, filetype, filesize,
+		FROM AttachFile
 		WHERE attachfileno = #{attachfileno}
-		ORDER BY
-		attachfileno
-</select>
+	</select>
 
 </mapper>
