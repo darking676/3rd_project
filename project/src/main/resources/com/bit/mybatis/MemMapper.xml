@@ -18,16 +18,25 @@
 
 
 	<update id="modify" parameterType="memVo">
-		UPDATE members SET email = #{email}, address = #{address}, hp = #{hp}
+		UPDATE members SET email = memPassword = #{memPassword}, #{email}, address = #{address}, hp = #{hp}
 		WHERE memId = #{memId} AND memPassword = #{memPassword}
 	</update>
 
 	<update id="changePasswd" parameterType="memVo">
-		UPDATE members SET memPassword = #{memPassword} , email = #{email}, address
-		= #{address}, hp = #{hp} WHERE memId = #{memId}
+		UPDATE members SET memPassword = #{memPassword} , email = #{email}, address = #{address}, hp = #{hp} WHERE memId = #{memId}
 	</update>
 
 	<!-- , email = #{email}, address = #{address}, hp = #{hp} -->
 
+	<!-- id 중복검사 -->
+	<select id="chkId" parameterType="hashmap" resultType="Integer">
+		SELECT 
+			COUNT(*) 
+		FROM
+			<if test="duplChk != null and duplChk != ''">
+			members
+		WHERE 1=1 and memId = #{memId}
+		</if>
+	</select>
 
 </mapper>

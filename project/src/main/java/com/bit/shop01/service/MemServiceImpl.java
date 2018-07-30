@@ -1,9 +1,12 @@
 package com.bit.shop01.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bit.mybatis.MemMapper;
+import com.bit.shop01.model.MemDao;
 import com.bit.shop01.model.entity.MemVo;
 
 @Service
@@ -31,5 +34,6 @@ public class MemServiceImpl implements MemService {
 		memMapper.changePasswd(memVo);
 
 	}
+
 
 }

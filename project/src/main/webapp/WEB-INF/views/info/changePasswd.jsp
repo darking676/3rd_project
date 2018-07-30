@@ -29,6 +29,20 @@
 //]]>
 </script>
 <%@ include file="../template/header.jsp"%>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#okay").click(function() {
+			var memPassword = $("#memPassword").val();
+			var passwordChk = $("#passwordChk").val();
+			
+			if(passwordChk != memPassword){
+				alert("비밀번호가 다릅니다 \n비밀번호를 다시 입력하세요");
+				$("#passwordChk").focus();
+				return false;
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../template2/header2.jsp"%>
@@ -50,7 +64,16 @@
 						for="password">PASSWORD</label>
 					<div class="controls">
 						<input type="password" id="memPassword" name="memPassword"
-							placeholder="" class="input-xlarge"
+							placeholder="비밀번호를 입력하세요" class="input-xlarge"
+							style="text-align: Left; width: 288px;"> <br />
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="password">PASSWORD CHECK</label>
+					<div class="controls">
+						<input type="password" id="passwordChk" name="passwordChk"
+							placeholder="비밀번호를 다시 입력하세요" class="input-xlarge"
 							style="text-align: Left; width: 288px;"> <br />
 					</div>
 				</div>
@@ -59,7 +82,7 @@
 					<!-- Password-->
 					<label class="control-label" for="password">이메일 변경</label><br />
 					<div class="controls">
-						<input type="text" id="email" name="email" placeholder=""
+						<input type="email" id="email" name="email" placeholder=" 이메일을 입력하세요"
 							class="input-xlarge" style="text-align: Left; width: 288px;">
 						<br />
 					</div>
@@ -69,7 +92,7 @@
 					<!-- Password-->
 					<label class="control-label" for="address">주소 변경</label>
 					<div class="controls">
-						<input type="text" id="address" name="address" placeholder=""
+						<input type="text" id="address" name="address" placeholder=" 주소를 입력하세요"
 							class="input-xlarge" style="text-align: Left; width: 288px;">
 						<br />
 					</div>
@@ -79,7 +102,7 @@
 					<!-- Password-->
 					<label class="control-label" for="hp">전화번호 변경</label>
 					<div class="controls">
-						<input type="text" id="hp" name="hp" placeholder=""
+						<input type="text" id="hp" name="hp" placeholder="전화번호를 입력하세요(-는 제외)"
 							class="input-xlarge" style="text-align: Left; width: 288px;">
 						<br />
 					</div>
@@ -91,7 +114,7 @@
 					<!-- Button -->
 					<div class="controls">
 						<br /> <br />
-						<button class="btn btn-info btn-sm active" style="width: 288px"
+						<button id="okay" class="btn btn-info btn-sm active" style="width: 288px"
 							type="submit">OK</button>
 					</div>
 				</div>
