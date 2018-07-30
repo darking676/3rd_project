@@ -26,12 +26,36 @@
 //]]>
 </script>
 <%@ include file="../template/header.jsp"%>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#login').click(function() {
+			var memId = $("#memId").val();
+			var memPassword = $("#memPassword").val();
+			
+			if(memId == "") {
+				alert("아이디를 입력하세요");
+				$("#memId").focus();
+				return false;
+			}
+			
+			if(memPassword == "") {
+				alert("비밀번호를 입력하세요");
+				$("#memPassword").focus();
+				return false;
+			}
+			
+			document.login1.action = "/shop01/login";
+			document.login1.submit();
+			
+		});
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../template/header2.jsp"%>
 
 	<div class="location01">
-		<form class="form-horizontal" action="/shop01/login/" method="POST"
+		<form id="login1" class="form-horizontal" action="/shop01/login/" method="POST"
 			onsubmit="return login()">
 			<fieldset>
 				<div id="legend">
@@ -59,7 +83,7 @@
 				<div class="control-group">
 					<!-- Button -->
 					<div class="controls">
-						<button class="btn btn-info btn-sm active" style="width: 288px"
+						<button id="login" class="btn btn-info btn-sm active" style="width: 288px"
 							type="submit">LOGIN</button>
 						<br /> <br />
 					</div>

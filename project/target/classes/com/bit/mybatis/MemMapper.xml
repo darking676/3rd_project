@@ -6,13 +6,13 @@
 <mapper namespace="com.bit.mybatis.MemMapper">
 
 	<insert id="insert" parameterType="memVo">
-		INSERT INTO MEMBERS VALUES (#{memId}, #{memName}, #{memPassword}, #{email},
-		#{address}, #{hp})
+		INSERT INTO MEMBERS 
+		VALUES (#{memId}, #{memName}, #{memPassword}, #{email},	#{address}, #{hp})
 	</insert>
 
 
 	<select id="login" resultType="memVo">
-		SELECT MEMID, MEMNAME, MEMPASSWORD, EMAIL, ADDRESS, HP FROM MEMBERS
+		SELECT * FROM MEMBERS
 		WHERE MEMID = #{memId} AND MEMPASSWORD = #{memPassword}
 	</select>
 

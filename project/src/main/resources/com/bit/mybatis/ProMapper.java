@@ -20,5 +20,4 @@ public interface ProMapper {
 
 	public void getFile(AttachFile file) throws Exception;
 	
-	
 }

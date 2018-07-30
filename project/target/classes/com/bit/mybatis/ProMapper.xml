@@ -14,7 +14,6 @@
 	</select>
 	
 	<insert id="insertPro">
-		<!-- INSERT INTO PRODUCT (product_url) VALUES ( #{product_url} ) -->
 		INSERT INTO PRODUCT ( productName, procd, explan, price, product_url ) 
 		VALUES ( #{productName}, #{procd}, #{explan}, #{price}, #{product_url} )
 	</insert>
