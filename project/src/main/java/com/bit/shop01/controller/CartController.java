@@ -58,16 +58,17 @@ public class CartController {
 		params.put("quantity",quantity);
 		int count = service.countCart(params);
 //		int count = service.countCart(cartVo.getProductNum(), memId);
-		if (count == 0) {
-			service.updateCart(cartVo);
-		} else {
-			service.insert(cartVo);
-		}
+
+//		if (count == 0) {
+//			service.updateCart(cartVo);
+//		} else {
+//			service.insert(cartVo);
+//		}
 		
 		if(count == 0) {
 			service.insert(cartVo);
 		} else {
-			service.updateCart(cartVo);
+			service.editCart(cartVo);
 		}
 		
 		return "redirect:/cart2/";

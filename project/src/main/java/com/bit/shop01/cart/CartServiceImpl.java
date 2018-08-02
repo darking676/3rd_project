@@ -46,7 +46,7 @@ public class CartServiceImpl implements CartService {
 
 	//��ٱ��� ����
 	public int editCart(CartVo3 vo) {
-		return cartMapper.eidtCart(vo);
+		return cartMapper.editCart(vo);
 	}
 
 	//��ٱ��� ���

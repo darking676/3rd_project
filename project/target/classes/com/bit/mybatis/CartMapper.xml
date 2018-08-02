@@ -54,7 +54,7 @@
 	UPDATE 
 		basket 
 	SET 
-		quantity = #{quantity} 
+		quantity = quantity + #{quantity} 
 	WHERE 
 		memId = #{memId} AND productNum = #{productNum}
 </update>

@@ -34,7 +34,7 @@ public class CartDaoImpl implements CartMapper {
 
 	//��ٱ��� ����
 	@Override
-	public int eidtCart(CartVo3 vo) {
+	public int editCart(CartVo3 vo) {
 		return sqlSession.update("cart.eidtCart", vo);
 	}
 
