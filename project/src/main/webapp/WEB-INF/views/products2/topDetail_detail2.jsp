@@ -81,7 +81,7 @@ hr.line2 {
 					<!-- 본문 시작 -->
 					<h3 style="transform:translateX(235px)">BOTTOM</h3>
 					<hr style="transform:translateX(-230px)" class="line">
-					<img src="../resources/imgs2/${thisProductsVo.product_url }" alt="..." 
+					<img src="../resources/imgs2/${thisProductsVo.product_url } alt="..." 
 					style="width: 600px; transform:translateX(-250px) " align=left hspace=20>
 					<div id="bottom">
 					
@@ -95,7 +95,8 @@ hr.line2 {
 						 <hr class="line2" style="transform:translateX(-250px)">
 						 <h4 style="transform:translateX(-250px)">code : ${thisProductsVo.productNum}</h4>
 						 <h4 style="transform:translateX(-250px)">price : ${thisProductsVo.price}원</h4>
-					 <div class="container">
+						 
+						 <div class="container">
 							<div class="row">
 								<h5 style="transform: translateX(-250px)">상품갯수</h5>
 								<!-- Single button -->
@@ -108,7 +109,6 @@ hr.line2 {
 												<option value="${i }">${i }</option>
 											</c:forEach>
 										</select>
-									</form>
                                  </div>
                                 
 									<button class="btn btn-info btn-sm active"
@@ -119,6 +119,7 @@ hr.line2 {
 										type="submit">결제하기</button>
 									<br clear=left>
 
+									</form>
 
 
 									<!-- 						<br /> -->

@@ -84,9 +84,9 @@ hr.line2 {
 					<!-- 본문 시작 -->
 					<h3 style="transform:translateX(235px)">bottom2</h3>
 					<hr style="transform:translateX(-230px)" class="line">
-					<img src="../resources/imgs2/${thisProductsVo.product_url }" alt="..." 
+					<img src="../resources/imgs2/${thisProductsVo.product_url } alt="..." 
 					style="width: 600px; transform:translateX(-250px) " align=left hspace=20>
-					<div id="bottom2">
+					<div id="bottom">
 					
 						<h3 style="transform:translateX(-250px)">${thisProductsVo.productName}</h3>
 						 <hr class="line2" style="transform:translateX(-250px)">
@@ -121,7 +121,6 @@ hr.line2 {
 										style="width: 185px; transform: translateX(-302px) translateY(40px)"
 										type="submit">결제하기</button>
 									<br clear=left>
-
 
 									</form>
 
