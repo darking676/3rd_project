@@ -41,7 +41,7 @@
 			if(memPassword == "") {
 				alert("비밀번호를 입력하세요");
 				$("#memPassword").focus();
-				return false;
+				return false; 
 			}
 			
 			document.login1.action = "/shop01/login";
