@@ -75,7 +75,7 @@ body {
 									<th class="border-0 text-uppercase small font-weight-bold text-center">SUMPRICE</th>
 									<th class="border-0 text-uppercase small font-weight-bold text-center">DELETE</th>
 								</tr>
-								</thead>
+								</thead> 
 								<tbody>
 								<c:forEach var="cartVo" items="${map.list }" varStatus="i">
 								<tr class="text-center" >
