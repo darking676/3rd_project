@@ -35,18 +35,23 @@
 <!-- 		ANd c.memId = #{memId} -->
 <!-- 	ORDER BY -->
 <!-- 		c.basketNum -->
-	SELECT 
-		a.basketnum, b.productNum, b.product_url, b.productname, b.price, a.quantity, c.colors, s.sizename, (b.price * a.quantity) sumPrice
-	FROM 
-		basket A, product B, colorsd C, sizesize s 
-	WHERE 
-		a.memId = #{memId}
-		AND 
-			a.productNum = b.productNum 
-		AND 
-			c.colors = a.colors
-		AND 
-			s.sizename = a.sizename
+<!-- 	SELECT  -->
+<!-- 		a.basketnum, b.productNum, b.product_url, b.productname, b.price, a.quantity, c.colors, s.sizename, (b.price * a.quantity) sumPrice -->
+<!-- 	FROM  -->
+<!-- 		basket A, product B, colorsd C, sizesize s  -->
+<!-- 	WHERE  -->
+<!-- 		a.memId = #{memId} -->
+<!-- 		AND  -->
+<!-- 			a.productNum = b.productNum  -->
+<!-- 		AND  -->
+<!-- 			c.colors = a.colors -->
+<!-- 		AND  -->
+<!-- 			s.sizename = a.sizename -->
+
+	SELECT a.basketnum, b.productNum, b.product_url, b.productname, b.price, a.quantity, c.colors, s.sizename, 
+	(b.price * a.quantity) sumPrice
+	FROM basket A, product B, colorsd C, sizesize s 
+	WHERE a.memId = #{memId} and a.productNum = b.productNum and c.colors = a.colors and a.sizename = s.sizename
 </select>
 
 <!-- 장바구니 전체 금액 -->

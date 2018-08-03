@@ -7,6 +7,7 @@ public class CartVo {
 	private int quantity;
 	private String productName;
 	private int productNum;
+	private String product_url;
 	private int price;
 	private int sumPrice;
 	private String colors;
@@ -16,18 +17,26 @@ public class CartVo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartVo(int basketNum, String memId, int quantity, String productName, int productNum, int price,
-			int sumPrice, String colors, String sizename) {
+	public CartVo(int basketNum, String memId, int quantity, String productName, int productNum, String product_url,
+			int price, int sumPrice, String colors, String sizename) {
 		super();
 		this.basketNum = basketNum;
 		this.memId = memId;
 		this.quantity = quantity;
 		this.productName = productName;
 		this.productNum = productNum;
+		this.product_url = product_url;
 		this.price = price;
 		this.sumPrice = sumPrice;
 		this.colors = colors;
 		this.sizename = sizename;
+	}
+
+	@Override
+	public String toString() {
+		return "CartVo [basketNum=" + basketNum + ", memId=" + memId + ", quantity=" + quantity + ", productName="
+				+ productName + ", productNum=" + productNum + ", product_url=" + product_url + ", price=" + price
+				+ ", sumPrice=" + sumPrice + ", colors=" + colors + ", sizename=" + sizename + "]";
 	}
 
 	public int getBasketNum() {
@@ -70,6 +79,14 @@ public class CartVo {
 		this.productNum = productNum;
 	}
 
+	public String getProduct_url() {
+		return product_url;
+	}
+
+	public void setProduct_url(String product_url) {
+		this.product_url = product_url;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -103,13 +120,6 @@ public class CartVo {
 	}
 
 	@Override
-	public String toString() {
-		return "CartVo [basketNum=" + basketNum + ", memId=" + memId + ", quantity=" + quantity + ", productName="
-				+ productName + ", productNum=" + productNum + ", price=" + price + ", sumPrice=" + sumPrice
-				+ ", colors=" + colors + ", sizename=" + sizename + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -119,6 +129,7 @@ public class CartVo {
 		result = prime * result + price;
 		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
 		result = prime * result + productNum;
+		result = prime * result + ((product_url == null) ? 0 : product_url.hashCode());
 		result = prime * result + quantity;
 		result = prime * result + ((sizename == null) ? 0 : sizename.hashCode());
 		result = prime * result + sumPrice;
@@ -155,6 +166,11 @@ public class CartVo {
 			return false;
 		if (productNum != other.productNum)
 			return false;
+		if (product_url == null) {
+			if (other.product_url != null)
+				return false;
+		} else if (!product_url.equals(other.product_url))
+			return false;
 		if (quantity != other.quantity)
 			return false;
 		if (sizename == null) {
@@ -166,5 +182,7 @@ public class CartVo {
 			return false;
 		return true;
 	}
+	
+	
 	
 }

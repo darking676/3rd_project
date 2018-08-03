@@ -62,52 +62,68 @@ body {
 		</c:when>
 		<c:otherwise>
 			<form name="form1" id="form1" method="post" action="/shop01/cart2/update">
-				<table border="1">
-					<tr>
-						<th>PRODUCT</th>
-						<th>NAME</th>
-						<th>PRICE</th>
-						<th>QUANTITY</th>
-						<th>SUMPRICE</th>
-						<th>DELETE</th>
-					</tr>
-					<c:forEach var="cartVo" items="${map.list }" varStatus="i">
-					<tr>
-						<td>
-							<img alt="Product Photo" src="../resources/imgs2/${thisProductsVo.product_url }">
-						</td>
-						<td>
-							${cartVo.productName }<br/>
-							COLOR : ${cartVo.colors }<br/>
-							SIZE : ${cartVo.sizename } 
-						</td>
-						<td style="width: 80px" align="right">
-							<fmt:formatNumber pattern="###,###,###" value="${cartVo.price }"/>
-						</td>
-						<td>
-							<input type="number" style="width: 40px" name="quantity" value="${cartVo.quantity }" min="1" max="10" />
-							<input type="hidden" name="productNum" value="${cartVo.productNum }" />
-						</td>
-						<td style="width: 100px" align="right">
-							<fmt:formatNumber pattern="###,###,###" value="${cartVo.sumPrice }" />
-						</td>
-						<td>
-							<button type="button" id="btnDel"><a href="/shop01/cart2/delete/?basketNum=${cartVo.basketNum }">삭제</a></button>
-						</td>
-					</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="5" align="right">
-							장바구니 금액 합계 : <fmt:formatNumber pattern="###,###,###" value="${map.sumPrice }" /><br/>
-							배송료 : ${map.fee }<br/>
-							전체 주문 금액 : <fmt:formatNumber pattern="###,###,###" value="${map.AllSum }" />
-						</td>
-					</tr>
-				</table>
-				<input type="hidden" name="count" value="${map.count }"><br/>
-				<button type="submit" id="btnUpdate">수정</button>&nbsp;&nbsp;
-				<button type="button" id="btnSel">주문하기</button>&nbsp;&nbsp;<!-- 결제로 이동 -->
-				<button type="button" id="btnHome">쇼핑 계속하기</button>
+			<div class="continer">
+				<div class="row p-5">
+						<div class="col-md-10 ">
+							<table class="table">
+								<thead>
+								<tr>
+									<th class="border-0 text-uppercase small font-weight-bold text-center">PRODUCT</th>
+									<th class="border-0 text-uppercase small font-weight-bold text-center">NAME</th>
+									<th class="border-0 text-uppercase small font-weight-bold text-center">PRICE</th>
+									<th class="border-0 text-uppercase small font-weight-bold text-center">QUANTITY</th>
+									<th class="border-0 text-uppercase small font-weight-bold text-center">SUMPRICE</th>
+									<th class="border-0 text-uppercase small font-weight-bold text-center">DELETE</th>
+								</tr>
+								</thead>
+								<tbody>
+								<c:forEach var="cartVo" items="${map.list }" varStatus="i">
+								<tr class="text-center" >
+									<td>
+										<img alt="Product Photo" src="../resources/imgs2/${cartVo.product_url }"
+										style="width: 150px; transform:translateX(-250px) " align="right"  hspace="30" >
+									</td>
+									<td>
+										<strong>${cartVo.productName }</strong><br/>
+										<strong>COLOR</strong> : ${cartVo.colors }<br/>
+										<strong>SIZE</strong> : ${cartVo.sizename } 
+									</td>
+									<td style="width: 80px" align="right">
+										&#8361;<fmt:formatNumber pattern="###,###,###" value="${cartVo.price }"/>
+									</td>
+									<td class="text-center">
+										<input type="number" style="width: 40px" name="quantity" value="${cartVo.quantity }" min="1" max="10" />
+										<input type="hidden" name="productNum" value="${cartVo.productNum }" />개
+									</td>
+									<td style="width: 100px" align="right">
+										&#8361;<fmt:formatNumber pattern="###,###,###" value="${cartVo.sumPrice }" />
+									</td>
+									<td>
+										<button type="button" id="btnDel"><a href="/shop01/cart2/delete/?basketNum=${cartVo.basketNum }">삭제</a></button>
+									</td>
+								</tr>
+								</c:forEach>
+								<tr>
+									<td colspan="6" align="right">
+									<br/>
+										<p><strong>장바구니 금액 합계</strong> : &#8361;<fmt:formatNumber pattern="###,###,###" value="${map.sumPrice }" /></p>
+										<p><strong>배송료</strong> : &#8361;${map.fee }</p>
+										<strong>전체 주문 금액</strong> : &#8361;<fmt:formatNumber pattern="###,###,###" value="${map.AllSum }" />
+									</td>
+								</tr>
+								</tbody>
+							</table>
+							<div class="d-flex flex-row-reverse text-white p-4 text-right">
+								<div class="py-3 px-5">
+									<p><input type="hidden" name="count" value="${map.count }"></p>
+									<button type="submit" id="btnUpdate">수정</button>&nbsp;&nbsp;
+									<button type="button" id="btnSel">주문하기</button>&nbsp;&nbsp;<!-- 결제로 이동 -->
+									<button type="button" id="btnHome">쇼핑 계속하기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</form>
 		</c:otherwise>
 	</c:choose>
