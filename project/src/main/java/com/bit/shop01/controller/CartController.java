@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bit.shop01.cart.CartService;
 import com.bit.shop01.cart.model.CartDaoImpl;
-import com.bit.shop01.cart.model.entity.CartVo3;
+import com.bit.shop01.cart.model.entity.CartVo;
 import com.bit.shop01.model.entity.MemVo;
 
 @Controller
@@ -41,14 +41,23 @@ public class CartController {
 //	}
 	
 	@RequestMapping(value="/cart2/insert")
-	public String insert(@ModelAttribute CartVo3 cartVo, HttpSession session, HttpServletRequest request) {
+	public String insert(@ModelAttribute CartVo cartVo, HttpSession session, HttpServletRequest request) {
 		MemVo loginMember = (MemVo)session.getAttribute("check");
 		String memId = loginMember.getMemId();
 		cartVo.setMemId(memId);
 		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		
+		String colors = request.getParameter("colors");
+		System.out.println("colors : "+colors);
+		
+		String sizename = request.getParameter("sizename");
+		System.out.println("sizename : "+sizename);
+		
 		cartVo.setProductNum(productNum);
 		cartVo.setQuantity(quantity);
+		cartVo.setColors(colors);
+		cartVo.setSizename(sizename);
 		
 		System.out.println("productNum / quantity : " + productNum + " / " + quantity);
 		
@@ -56,14 +65,11 @@ public class CartController {
 		params.put("productNum", cartVo.getProductNum());
 		params.put("memId", memId);
 		params.put("quantity",quantity);
+		params.put("colors", colors);
+		params.put("sizename", sizename);
 		int count = service.countCart(params);
 //		int count = service.countCart(cartVo.getProductNum(), memId);
 
-//		if (count == 0) {
-//			service.updateCart(cartVo);
-//		} else {
-//			service.insert(cartVo);
-//		}
 		
 		if(count == 0) {
 			service.insert(cartVo);
@@ -83,7 +89,7 @@ public class CartController {
 //		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		Map<String, Object> map = new HashMap<String, Object>();
 //		List<CartVo> list = service.listCart(memId);
-		List<CartVo3> list = new ArrayList<CartVo3>();
+		List<CartVo> list = new ArrayList<CartVo>();
 		
 //		int test = service.test();
 //		System.out.println("test : " + test);
@@ -127,7 +133,7 @@ public class CartController {
 		
 		for(int i=0; i<productNum.length; i++) {
 			System.out.println("???2 "+quantity[i]);
-			CartVo3 cartVo = new CartVo3();
+			CartVo cartVo = new CartVo();
 			cartVo.setMemId(memId);
 			cartVo.setQuantity(quantity[i]);
 			cartVo.setProductNum(productNum[i]);

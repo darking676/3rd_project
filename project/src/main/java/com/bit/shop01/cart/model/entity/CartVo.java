@@ -9,13 +9,15 @@ public class CartVo {
 	private int productNum;
 	private int price;
 	private int sumPrice;
+	private String colors;
+	private String sizename;
 	
 	public CartVo() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public CartVo(int basketNum, String memId, int quantity, String productName, int productNum, int price,
-			int sumPrice) {
+			int sumPrice, String colors, String sizename) {
 		super();
 		this.basketNum = basketNum;
 		this.memId = memId;
@@ -24,6 +26,8 @@ public class CartVo {
 		this.productNum = productNum;
 		this.price = price;
 		this.sumPrice = sumPrice;
+		this.colors = colors;
+		this.sizename = sizename;
 	}
 
 	public int getBasketNum() {
@@ -82,10 +86,27 @@ public class CartVo {
 		this.sumPrice = sumPrice;
 	}
 
+	public String getColors() {
+		return colors;
+	}
+
+	public void setColors(String colors) {
+		this.colors = colors;
+	}
+
+	public String getSizename() {
+		return sizename;
+	}
+
+	public void setSizename(String sizename) {
+		this.sizename = sizename;
+	}
+
 	@Override
 	public String toString() {
 		return "CartVo [basketNum=" + basketNum + ", memId=" + memId + ", quantity=" + quantity + ", productName="
-				+ productName + ", productNum=" + productNum + ", price=" + price + ", sumPrice=" + sumPrice + "]";
+				+ productName + ", productNum=" + productNum + ", price=" + price + ", sumPrice=" + sumPrice
+				+ ", colors=" + colors + ", sizename=" + sizename + "]";
 	}
 
 	@Override
@@ -93,11 +114,13 @@ public class CartVo {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + basketNum;
+		result = prime * result + ((colors == null) ? 0 : colors.hashCode());
 		result = prime * result + ((memId == null) ? 0 : memId.hashCode());
 		result = prime * result + price;
 		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
 		result = prime * result + productNum;
 		result = prime * result + quantity;
+		result = prime * result + ((sizename == null) ? 0 : sizename.hashCode());
 		result = prime * result + sumPrice;
 		return result;
 	}
@@ -112,6 +135,11 @@ public class CartVo {
 			return false;
 		CartVo other = (CartVo) obj;
 		if (basketNum != other.basketNum)
+			return false;
+		if (colors == null) {
+			if (other.colors != null)
+				return false;
+		} else if (!colors.equals(other.colors))
 			return false;
 		if (memId == null) {
 			if (other.memId != null)
@@ -129,10 +157,14 @@ public class CartVo {
 			return false;
 		if (quantity != other.quantity)
 			return false;
+		if (sizename == null) {
+			if (other.sizename != null)
+				return false;
+		} else if (!sizename.equals(other.sizename))
+			return false;
 		if (sumPrice != other.sumPrice)
 			return false;
 		return true;
 	}
-
-
+	
 }

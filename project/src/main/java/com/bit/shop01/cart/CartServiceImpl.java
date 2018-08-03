@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bit.mybatis.CartMapper;
-import com.bit.shop01.cart.model.entity.CartVo3;
+import com.bit.shop01.cart.model.entity.CartVo;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -22,8 +22,7 @@ public class CartServiceImpl implements CartService {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//��ٱ��Ͽ� �߰�
-	public int insert(CartVo3 vo) {
+	public int insert(CartVo vo) {
 		return cartMapper.insert(vo);
 	}
 	
@@ -31,7 +30,6 @@ public class CartServiceImpl implements CartService {
 //		return cartMapper.test();
 //	}
 
-	//��ٱ��Ͽ��� ��ǰ Ȯ��
 	public int countCart(HashMap<String, Object> params) {
 //		public int countCart(int productNum, String memId) {
 		
@@ -44,31 +42,31 @@ public class CartServiceImpl implements CartService {
 		return cartMapper.countCart(params);
 	}
 
-	//��ٱ��� ����
-	public int editCart(CartVo3 vo) {
+	public int editCart(CartVo vo) {
 		return cartMapper.editCart(vo);
 	}
 
-	//��ٱ��� ���
-	public List<CartVo3> listCart(String memId) {
+	public List<CartVo> listCart(String memId) {
 		System.out.println("list cart (service) : " + memId);
 		System.out.println("list cart (service) : " + cartMapper.listCart(memId));
 		return cartMapper.listCart(memId);
 	}
 
-	//��ٱ��� �ݾ� �հ�
 	public int sumPrice(String memId) {
 		return cartMapper.sumPrice(memId);
 	}
 
-	//��ٱ��� ����
 	public void delete(int cartNum) {
 		cartMapper.delete(cartNum);
 	}
 
-	//��ٱ��� ��ǰ ���� ����
-	public void updateCart(CartVo3 vo) {
+	public void updateCart(CartVo vo) {
 		cartMapper.updateCart(vo);
+	}
+
+	@Override
+	public String cartPro(CartVo vo) {
+		return cartPro(vo);
 	}
 	
 

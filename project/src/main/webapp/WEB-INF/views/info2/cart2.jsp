@@ -64,16 +64,22 @@ body {
 			<form name="form1" id="form1" method="post" action="/shop01/cart2/update">
 				<table border="1">
 					<tr>
-						<th>상품명</th>
-						<th>가 격</th>
-						<th>수 량</th>
-						<th>금 액</th>
-						<th>취 소</th>
+						<th>PRODUCT</th>
+						<th>NAME</th>
+						<th>PRICE</th>
+						<th>QUANTITY</th>
+						<th>SUMPRICE</th>
+						<th>DELETE</th>
 					</tr>
 					<c:forEach var="cartVo" items="${map.list }" varStatus="i">
 					<tr>
 						<td>
-							${cartVo.productName }
+							<img alt="Product Photo" src="../resources/imgs2/${thisProductsVo.product_url }">
+						</td>
+						<td>
+							${cartVo.productName }<br/>
+							COLOR : ${cartVo.colors }<br/>
+							SIZE : ${cartVo.sizename } 
 						</td>
 						<td style="width: 80px" align="right">
 							<fmt:formatNumber pattern="###,###,###" value="${cartVo.price }"/>

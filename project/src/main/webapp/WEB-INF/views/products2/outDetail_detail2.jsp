@@ -99,15 +99,34 @@ hr.line2 {
 						 <div class="container">
 							<div class="row">
 								<h5 style="transform: translateX(-250px)">상품갯수</h5>
+								<h5 style="transform: translateX(-250px)">COLOR</h5>
+								<h5 style="transform: translateX(-250px)">SIZE</h5>
 								<!-- Single button -->
 								<div style="transform: translateX(-250px);" class="btn-group">
 
 									<form name="goCart" method="get" action="/shop01/cart2/insert">
 										<input type="hidden" name="productNum" value="${thisProductsVo.productNum}">
-										<select name="quantity" style="transform: translateX(60px) translateY(-33px);">
+										<select name="quantity" style="transform: translateX(60px) translateY(-82px);">
 											<c:forEach begin="1" end="10" var="i">
 												<option value="${i }">${i }</option>
 											</c:forEach>
+										</select>
+										<br/>
+										<select name="colors" style="transform: translateX(60px) translateY(-80px);">
+												<option value="BLACK">BLACK</option>
+												<option value="RED">RED</option>
+												<option value="YELLOW">YELLOW</option>
+												<option value="BLUE">BLUE</option>
+												<option value="CIELO">CIELO</option>
+												<option value="WHITE">WHITE</option>
+										</select>
+										<br/>
+										<select name="sizename" style="transform: translateX(60px) translateY(-78px);">
+											<option value="XS">XS</option>
+											<option value="S">S</option>
+											<option value="M">M</option>
+											<option value="L">L</option>
+											<option value="XL">XL</option>
 										</select>
                                  </div>
                                 
